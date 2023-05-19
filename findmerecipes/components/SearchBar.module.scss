@@ -1,0 +1,36 @@
+.searchcontent, 
+.searchbtn{
+    width: 100%;
+}
+
+.searchcontent{
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: 0;
+    border: 1px solid burlywood;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    height: 40px;
+}
+
+.searchcontent::placeholder{
+    color: burlywood;
+}
+
+.searchbtn{
+    width: 100px;
+    font-size: 1rem;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.searchbtn:hover{
+    background-color: #718355;
+    color: white;
+    border: 1px solid #718355;
+    transition: all 0.4s linear;
+}

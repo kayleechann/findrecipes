@@ -1,0 +1,14 @@
+.item {
+	padding: 1rem 2rem;
+	background-color: burlywood;
+	display: inline-block;
+	font-size: 1rem;
+	color: white;
+	border-radius: 6px;
+	cursor: pointer;
+	border: 2px solid burlywood;
+	margin: 10px;
+}
+.item__selected {
+	border: 2px solid orange;
+}
