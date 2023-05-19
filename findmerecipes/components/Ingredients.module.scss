@@ -1,0 +1,19 @@
+.ingredientsTable {
+	max-width: 500px;
+	width: 100%;
+	border-spacing: 0px;
+	tr {
+		width: 100%;
+		background-color: lightgray;
+		&:nth-child(even) {
+			background-color: gray;
+		}
+		
+		td {
+			padding: 0.5rem;
+		}
+	}
+}
+.title {
+	margin-bottom: 1rem;
+}

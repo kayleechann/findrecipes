@@ -16,13 +16,22 @@ const getMeals = async( {queryKey}) =>{
   return data?.meals  || [];
 }
 
+const getQueriedMeals = async ({ queryKey }) => {
+  const { data } = await axios.get(`search.php?s=${queryKey[1]}`);
+  return data?.meals || [];
+};
+
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('');
-  const {data:categories, isLoading:categoriesIsLoading, isError:categoriesIsError} = useQuery(['categories'], getCategories);
-  const {data, isLoading, isError} = useQuery(['mealsByCategory', selectedCategory], getMeals)
-
   const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
+  const {data:categories, isLoading:categoriesIsLoading, isError:categoriesIsError} = useQuery(['categories'], getCategories);
+  const {data, isLoading, isError} = useQuery(['mealsByCategory', selectedCategory], getMeals,
+  {enabled: query ===''});
+  const {data:queriedData,  isLoading:queryIsLoading} = useQuery(['mealsbyquery', query], getQueriedMeals,
+  {enabled: query !== ''});
+
 
   // select first category as default
   useEffect(()=>{
@@ -68,7 +77,8 @@ export default function Home() {
               categoriesIsLoading={categoriesIsLoading}
               categoriesIsError={categoriesIsError}
               selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}></Categories>
+              setSelectedCategory={setSelectedCategory}
+              setQuery={setQuery}></Categories>
  
 
 
@@ -124,6 +134,13 @@ export default function Home() {
     <div className={styles.meals_container}>
         { !isLoading && !isError &&
             data && data.map(meal => (
+              <SingleMeal meal={meal} key={meal.idMeal}/>
+            ))
+          }
+
+          {
+            !queryIsLoading&& queriedData&&
+            queriedData.map(meal=>(
               <SingleMeal meal={meal} key={meal.idMeal}/>
             ))
           }

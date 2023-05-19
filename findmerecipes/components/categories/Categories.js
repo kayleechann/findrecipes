@@ -7,7 +7,8 @@ function Categories({
     categoriesIsLoading,
     categoriesIsError, 
     selectedCategory,
-    setSelectedCategory
+    setSelectedCategory,
+    setQuery
 }) {
 
     if (categoriesIsLoading){
@@ -27,7 +28,10 @@ function Categories({
     <div className={classes.categories}> 
     {categories.map(item => (
         <CategoryItem category={item} key={item.idCategory} selectedCategory={selectedCategory}
-        onClickHandler={() => setSelectedCategory(item.strCategory)}>{item.strCategory}</CategoryItem>
+        onClickHandler={() => {
+            setSelectedCategory(item.strCategory);
+            setQuery('');
+        }}>{item.strCategory}</CategoryItem>
     ))}
     </div>
     </>
