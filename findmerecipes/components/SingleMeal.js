@@ -1,20 +1,20 @@
 import React from 'react'
-import classes from './SingleMeal.module.scss'
+import styles from './SingleMeal.module.css'
 import Link from 'next/link';
 
 function SingleMeal({ meal }) {
   return (
 
-    <div className={classes.singlecontainer}>
+    <div className={styles.singlecontainer}>
        <Link href={`/meals/${meal.idMeal}`} legacyBehavior>
-      <a className={classes.item}>
+      <a className={styles.item}>
 
-        <div className={classes.mealimg}>
+        <div className={styles.mealimg}>
           <img src={meal.strMealThumb}></img>
         </div>
 
-        <div className={classes.mealname}>
-          <h3 className={classes.title} >{meal.strMeal}</h3>
+        <div className={styles.mealname}>
+          <h3 className={styles.title} >{meal.strMeal}</h3>
         </div>
 
       </a>

@@ -6,6 +6,7 @@ import classes from './MealPage.module.scss'
 import Ingredients from '../../../components/Ingredients.js'
 
 const getSingleMeal = async ({ queryKey }) => {
+  // api search for specific item
   const { data } = await axios.get(`./lookup.php?i=${queryKey[1]}`);
   return data?.meals?.[0];
 }
@@ -30,6 +31,7 @@ function SinglePage() {
     )
   }
 
+  // formatting ingredients
   const ingredients = Object.keys(data).filter((key) => key.startsWith('strIngredient')).filter((key) => data[key] !== '' && data[key] !== null);
 
   const ingredientsWithMeasures = ingredients.map((key, index) => ({

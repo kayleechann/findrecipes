@@ -6,6 +6,7 @@ import Categories from '../../components/categories/Categories.js'
 import React, { useEffect, useState } from 'react'
 import SingleMeal from '../../components/SingleMeal.js'
 
+// functions to get categories, meals, and meals search from query (user input)
 const getCategories = async () => {
   const { data } = await axios.get('/categories.php');
   return data.categories;
@@ -23,6 +24,7 @@ const getQueriedMeals = async ({ queryKey }:any ) => {
 
 
 export default function Home() {
+  // set state variables for user text and category
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
@@ -41,14 +43,17 @@ export default function Home() {
   }, [categories]);
 
 
+  // if there is no input for 300ms, default is set to load beef category
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (searchText) {
+        // use text if user inputs text
         setQuery(searchText);
         setSelectedCategory('');
       } else {
         setQuery('');
         if (categories) {
+          // load beef catefory
           setSelectedCategory(categories[0].strCategory);
         }
       }
@@ -79,13 +84,13 @@ export default function Home() {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           setQuery={setQuery}></Categories>
-
         </div>
        
 
       </div>
 
       <div className={styles.meals_container}>
+
         {!isLoading && !isError &&
           data && data.map((meal:any) => (
             <SingleMeal meal={meal} key={meal.idMeal} />

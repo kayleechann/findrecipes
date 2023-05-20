@@ -1,5 +1,4 @@
 import React from 'react'
-import classes from './Categories.module.scss'
 import CategoryItem from './CategoryItem.js'
 
 function Categories({
@@ -25,7 +24,7 @@ function Categories({
 
   return (
     <>
-    <div className={classes.categories}> 
+    <div> 
     {categories.map(item => (
         <CategoryItem category={item} key={item.idCategory} selectedCategory={selectedCategory}
         onClickHandler={() => {

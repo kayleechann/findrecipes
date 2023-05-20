@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@500&family=Gentium+Book+Plus&family=Noto+Sans+Hebrew:wght@500;600&display=swap');
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -22,6 +24,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    font-family: 'Figtree', sans-serif;
+    
     margin-bottom: 50px;
 }

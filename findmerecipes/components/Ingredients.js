@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from './Ingredients.module.scss';
+import styles from './Ingredients.module.css';
 
 function IngredientsTable({ ingredientsWithMeasures }) {
   return (
     <>
-      <h1 className={classes.title}>Ingredients</h1>
-      <table className={classes.ingredientsTable}>
+      <h1 className={styles.title}>Ingredients</h1>
+      <table className={styles.ingredientsTable}>
         <tbody>
           {ingredientsWithMeasures.map((ingredient) => (
             <tr key={ingredient.index}>

@@ -1,14 +1,15 @@
 import clsx from 'clsx';
 import React from 'react';
-import classes from './CategoryItem.module.scss';
+import styles from './CategoryItem.module.css';
 
 function CategoryItem({ category, selectedCategory, onClickHandler }) {
+  // check if category is being selected, update css based on it
   const isSelected = category.strCategory === selectedCategory;
 
   return (
     <button
       type="button"
-      className={clsx(classes.item, isSelected && classes.item__selected)}
+      className={clsx(styles.item, isSelected && styles.item__selected)}
       onClick={onClickHandler}
     >
       {category.strCategory}  

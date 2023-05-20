@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from './SearchBar.module.scss';
+import styles from './SearchBar.module.css';
 
 function SearchBar({ searchText, setSearchText }) {
   return (
     <>
     <input
-      className={classes.searchcontent}
+      className={styles.searchcontent}
       value={searchText}
       placeholder='Enter a keyword...'
       onChange={(e) => setSearchText(e.target.value)}
