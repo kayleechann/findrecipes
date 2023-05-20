@@ -5,26 +5,25 @@ import axios from 'axios'
 import classes from './MealPage.module.scss'
 import Ingredients from '../../../components/Ingredients.js'
 
-const getSingleMeal = async({queryKey}) =>{
-  const {data} = await axios.get(`./lookup.php?i=${queryKey[1]}`);
+const getSingleMeal = async ({ queryKey }) => {
+  const { data } = await axios.get(`./lookup.php?i=${queryKey[1]}`);
   return data?.meals?.[0];
 }
 
 function SinglePage() {
   // get meal id from query
   const router = useRouter();
-  const {singlemeal} = router.query;
+  const { singlemeal } = router.query;
+  const { data, isLoading, isError } = useQuery(['singleMeal', singlemeal], getSingleMeal);
 
-  const {data, isLoading, isError} = useQuery(['singleMeal', singlemeal], getSingleMeal);
-
-  if(isError){
-    return(
+  if (isError) {
+    return (
       <h1>error</h1>
     )
   }
 
-  if(isLoading){
-    return(
+  if (isLoading) {
+    return (
       <div>
         <h1>isLoadinggggg</h1>
       </div>
@@ -40,44 +39,49 @@ function SinglePage() {
   }));
 
   return (
-    
-      <div  className={classes.pagewrapper}>
-        <div className={classes.top}>
-          <div className={classes.img}>
-              <img src={data.strMealThumb} height="300" width="300"></img>
-          </div>
-          <div className={classes.info}>
-            <h1>{data.strMeal}</h1>
-            <ul className={classes.mealcategory}>
-              <li>
-                Category: {''} {data.strCategory}
-              </li>
-            </ul>
-            <h2>
-              Area: {''} {data.strArea}
-            </h2>
+    <div className={classes.pagewrapper}>
+      <div className={classes.info}>
+        <h1 className={classes.mealname}>{data.strMeal}</h1>
+        <ul className={classes.mealcategory}>
+          <li>
+            Category: {''} {data.strCategory}
+          </li>
+        </ul>
+        <h2>
+          Area: {''} {data.strArea}
+        </h2>
 
-            <h2>
-              Tags: {data?.strTags?.split(', ').join(' ,')}
-            </h2>
-          </div>
-        </div>
+        <h2>
+          Tags: {data?.strTags?.split(', ').join(' ,')}
+        </h2>
 
         <div className={classes.ingredientstable}>
         <Ingredients ingredientsWithMeasures={ingredientsWithMeasures}></Ingredients>
+      </div>
+
+      </div>
+
+      <div className={classes.top}>
+        <div className={classes.img}>
+          <img src={data.strMealThumb}></img>
         </div>
 
-        <div className={classes.steps}>
-          <h2>{data.strInstructions.split('.').filter((sentence) => sentence !== '').map((sentence) => (
+      </div>
+
+      
+
+      <div className={classes.steps}>
+        <h2 className={classes.instructions}>Instructions:</h2>
+        <h2>{data.strInstructions.split('.').filter((sentence) => sentence !== '').map((sentence) => (
           <li key={sentence}>
             {sentence}
             .
           </li>
         ))}</h2>
-        </div>
       </div>
-    
-   
+    </div>
+
+
   )
 }
 

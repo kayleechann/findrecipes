@@ -7,9 +7,10 @@ function SearchBar({ searchText, setSearchText }) {
     <input
       className={classes.searchcontent}
       value={searchText}
+      placeholder='Enter a keyword...'
       onChange={(e) => setSearchText(e.target.value)}
     />
-    <button type="submit" className={classes.searchbtn} id='searchbtn'>Search</button>
+
     </>
     
   );

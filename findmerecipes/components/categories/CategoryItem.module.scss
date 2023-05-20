@@ -8,7 +8,11 @@
 	cursor: pointer;
 	border: 2px solid burlywood;
 	margin: 10px;
+	letter-spacing: 2px;
+	font-weight: 500;
 }
 .item__selected {
-	border: 2px solid orange;
+	border: 2px solid burlywood;
+	color: burlywood;
+	background: white;
 }

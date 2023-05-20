@@ -1,0 +1,31 @@
+.singlecontainer{
+    background-color: burlywood;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    transition: 0.3s linear;
+}
+
+.singlecontainer:hover{
+    background-color: white;
+    color: burlywood;
+    font-weight: bold;
+}
+
+.mealimg img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+    z-index: 5;
+
+}
+.mealname{
+    padding: 1.5rem 0.5rem;
+}
+.mealname h3{
+    font-size: 1.4rem;
+}
+

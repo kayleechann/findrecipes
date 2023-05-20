@@ -1,19 +1,13 @@
 .ingredientsTable {
-	max-width: 500px;
+	max-width: 400px;
 	width: 100%;
 	border-spacing: 0px;
+	background-color: lightsteelblue;
 	tr {
-		width: 100%;
-		background-color: lightgray;
-		&:nth-child(even) {
-			background-color: gray;
-		}
-		
-		td {
-			padding: 0.5rem;
-		}
+		width: 100%; 
 	}
 }
 .title {
 	margin-bottom: 1rem;
+	font-size: 30px;
 }

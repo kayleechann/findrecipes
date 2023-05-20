@@ -1,0 +1,30 @@
+.pagewrapper{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .mealname{
+        font-size: 50px;
+        display:flex ;
+        align-items: center;
+    }
+}
+
+.img img{
+    width: 400px;
+    width: 400px;
+    flex-direction: column;
+    position: absolute;
+    right: 200px;
+    top: 100px
+}
+
+.instructions{
+    font-size: 30px;
+    margin-top: 20px;
+}
