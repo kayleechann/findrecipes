@@ -11,12 +11,12 @@ const getCategories = async () => {
   return data.categories;
 }
 
-const getMeals = async ({ queryKey }) => {
+const getMeals = async ({ queryKey }:any) => {
   const { data } = await axios.get(`/filter.php?c=${queryKey[1]}`);
   return data?.meals || [];
 }
 
-const getQueriedMeals = async ({ queryKey }) => {
+const getQueriedMeals = async ({ queryKey }:any ) => {
   const { data } = await axios.get(`search.php?s=${queryKey[1]}`);
   return data?.meals || [];
 };
@@ -87,14 +87,14 @@ export default function Home() {
 
       <div className={styles.meals_container}>
         {!isLoading && !isError &&
-          data && data.map(meal => (
+          data && data.map((meal:any) => (
             <SingleMeal meal={meal} key={meal.idMeal} />
           ))
         }
 
         {
           !queryIsLoading && queriedData &&
-          queriedData.map(meal => (
+          queriedData.map((meal:any) => (
             <SingleMeal meal={meal} key={meal.idMeal} />
           ))
         }

@@ -16,13 +16,13 @@ const queryClient = new QueryClient({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  
+
   return (
     <QueryClientProvider client={queryClient}>
       <style>
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@500&family=Gentium+Book+Plus&family=Noto+Sans+Hebrew:wght@500;600&display=swap');
-</style>
-    <Component {...pageProps} />
-  </QueryClientProvider>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@500&family=Gentium+Book+Plus&family=Noto+Sans+Hebrew:wght@500;600&display=swap');
+      </style>
+      <Component {...pageProps} />
+    </QueryClientProvider>
   )
 }
